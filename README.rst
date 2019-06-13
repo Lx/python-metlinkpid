@@ -2,6 +2,19 @@
 ``metlinkpid``: Metlink LED passenger information display driver
 ################################################################
 
+.. image:: https://img.shields.io/pypi/v/metlinkpid.svg
+   :target: https://pypi.org/project/metlinkpid
+   :alt: latest release on PyPI
+.. image:: https://travis-ci.org/Lx/python-metlinkpid.svg
+   :target: https://travis-ci.org/Lx/python-metlinkpid
+   :alt: build & test status
+.. image:: https://coveralls.io/repos/github/Lx/python-metlinkpid/badge.svg
+   :target: https://coveralls.io/github/Lx/python-metlinkpid
+   :alt: test coverage status
+.. image:: https://readthedocs.org/projects/python-metlinkpid/badge
+   :target: https://python-metlinkpid.readthedocs.io
+   :alt: documentation build status on Read the Docs
+
 The ``metlinkpid`` module provides a class to operate Metlink LED passenger information displays:
 
 >>> from metlinkpid import PID
