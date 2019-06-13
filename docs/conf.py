@@ -18,8 +18,6 @@ intersphinx_mapping = {
     'pyserial': ('https://pyserial.readthedocs.io/en/latest', None),
 }
 
-master_doc = 'index'
-
 html_theme = 'sphinx_rtd_theme'
 html_show_sourcelink = False
 html_last_updated_fmt = '%d %B %Y'
