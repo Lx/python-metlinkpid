@@ -38,7 +38,7 @@ Installation
 
 Install from PyPI_ using pip_::
 
-    pip install metlinkpid
+    pip install -U metlinkpid
 
 ..  _PyPI: https://pypi.org/project/metlinkpid
 ..  _pip: https://pip.pypa.io/
@@ -142,6 +142,16 @@ Bug reports, feature requests, and questions are welcome via the issue tracker.
 
 :Documentation: https://python-metlinkpid.readthedocs.io
 :Issue tracker: https://github.com/Lx/python-metlinkpid/issues
+
+
+Changes
+-------
+
+1.0.1
+    Add support for Python 3.6.
+
+1.0.0
+    Initial release.
 
 
 Contribute
