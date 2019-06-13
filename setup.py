@@ -34,4 +34,10 @@ setuptools.setup(
     tests_require=[
         'pytest',
     ],
+    extras_require={
+        'docs': [
+            'sphinx~=2.1.1',
+            'sphinx-rtd-theme~=0.4.3',
+        ]
+    },
 )
