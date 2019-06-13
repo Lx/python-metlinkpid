@@ -119,7 +119,7 @@ and some "extended" Unicode characters *are* available.
 Full details are in the `documentation`_ for the ``Page`` class.
 
 ..  _documentation:
-    https://python-metlinkpid.readthedocs.io/en/latest/classes/page.html
+    https://python-metlinkpid.readthedocs.io/en/latest/sending/page.html
 
 
 Known issues
