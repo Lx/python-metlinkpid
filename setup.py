@@ -8,7 +8,7 @@ needs_pytest = {'pytest', 'test', 'ptr'}.intersection(argv)
 
 setuptools.setup(
     name='metlinkpid',
-    version='1.0.1',
+    version='1.0.2',
     description='Metlink LED passenger information display driver',
     long_description=README.read_text(),
     url='https://github.com/Lx/python-metlinkpid',

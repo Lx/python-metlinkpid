@@ -596,12 +596,19 @@ class PID(AbstractContextManager):
         a :class:`serial.Serial` object.
         In normal use a correctly configured one
         is set by :meth:`PID.for_device`.
+
+    :param ignore_responses:
+        whether to ignore the response from the PID
+        whenever :meth:`PID.send` is called.
+        Defaults to ``False``.
+
     """
 
     serial: Serial = attr.ib()
+    ignore_responses: bool = attr.ib(False)
 
     @classmethod
-    def for_device(cls, port: str) -> 'PID':
+    def for_device(cls, port: str, ignore_responses: bool = False) -> 'PID':
         """
         Construct a :class:`PID` object connected to the specified serial device
         with a correctly configured :class:`serial.Serial` object.
@@ -619,10 +626,15 @@ class PID(AbstractContextManager):
             running ``dmesg``,
             and inspecting the output for the device name.
 
+        :param ignore_responses:
+            whether to ignore the response from the PID
+            whenever :meth:`PID.send` is called.
+            Defaults to ``False``.
+
         :raise serial.SerialException:
             if the serial device can't be found or can't be configured.
         """
-        return PID(serial=Serial(port=port, timeout=0.5))
+        return PID(serial=Serial(port=port, timeout=0.5), ignore_responses=ignore_responses)
 
     def send(self, data: Union[str, Message, bytes]) -> None:
         """
@@ -666,11 +678,12 @@ class PID(AbstractContextManager):
         if not is_framed:
             data = dlestxetx.encode(data + _crc(data))
         self.serial.write(data)
-        response = _uncrc(dlestxetx.read(self.serial))
-        if self.serial.in_waiting:
-            raise NotImplementedError('more data came back from the PID device than expected')
-        if not isinstance(inspect(response), ResponseMessage):
-            raise NotImplementedError('unexpected response from the PID device: {!r}'.format(response))
+        if not self.ignore_responses:
+            response = _uncrc(dlestxetx.read(self.serial))
+            if self.serial.in_waiting:
+                raise NotImplementedError('more data came back from the PID device than expected')
+            if not isinstance(inspect(response), ResponseMessage):
+                raise NotImplementedError('unexpected response from the PID device: {!r}'.format(response))
 
     def ping(self) -> None:
         """

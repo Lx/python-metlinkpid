@@ -147,6 +147,10 @@ Bug reports, feature requests, and questions are welcome via the issue tracker.
 Changes
 -------
 
+1.0.2
+    Add optional ``ignore_response`` parameter
+    to allow PID response errors to be ignored.
+
 1.0.1
     Add support for Python 3.6.
 
